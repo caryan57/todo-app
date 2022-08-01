@@ -9,6 +9,9 @@ const createTask = (e) => {
   const inputDate = document.querySelector("[data-input-date]");
   const date = inputDate.value;
   const dateFormat = moment(date).format("DD/MM/YYYY");
+  const dateElement = document.createElement("span");
+  dateElement.innerHTML = dateFormat;
+
   const value = input.value;
   input.value = "";
   const list = document.querySelector("[data-list]");
@@ -20,8 +23,8 @@ const createTask = (e) => {
   titleTask.innerText = value;
 
   taskContent.appendChild(titleTask);
-
   task.appendChild(taskContent);
+  task.appendChild(dateElement);
   task.appendChild(deleteIcon());
 
   task.classList.add("card");
