@@ -8,9 +8,8 @@ const addTask = (e) => {
   list.appendChild(task);
 };
 
-const taskList = [];
-
 const createTask = (e) => {
+  const taskList = JSON.parse(localStorage.getItem("tasks")) || [];
   const input = document.querySelector("[data-input-form]");
   const inputDate = document.querySelector("[data-input-date]");
   const date = inputDate.value;
@@ -30,7 +29,6 @@ const createTask = (e) => {
   };
 
   taskList.push(taskObj);
-
   localStorage.setItem("tasks", JSON.stringify(taskList));
 
   taskContent.appendChild(checkComplete());
