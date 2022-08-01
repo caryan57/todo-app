@@ -3,8 +3,14 @@ import deleteIcon from "./components/deleteIcon.js";
 
 const btn = document.querySelector("[data-form-btn]");
 
-const createTask = (e) => {
+const addTask = (e) => {
   e.preventDefault();
+  const list = document.querySelector("[data-list]");
+  const task = createTask(e);
+  list.appendChild(task);
+};
+
+const createTask = (e) => {
   const input = document.querySelector("[data-input-form]");
   const inputDate = document.querySelector("[data-input-date]");
   const date = inputDate.value;
@@ -14,7 +20,7 @@ const createTask = (e) => {
 
   const value = input.value;
   input.value = "";
-  const list = document.querySelector("[data-list]");
+
   const task = document.createElement("li");
   const taskContent = document.createElement("div");
   taskContent.appendChild(checkComplete());
@@ -28,7 +34,8 @@ const createTask = (e) => {
   task.appendChild(deleteIcon());
 
   task.classList.add("card");
-  list.appendChild(task);
+
+  return task;
 };
 
-btn.addEventListener("click", createTask);
+btn.addEventListener("click", addTask);
