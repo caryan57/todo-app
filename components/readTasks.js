@@ -12,6 +12,9 @@ const readTasks = () => {
 
   //Recorrer array de fechas
   dates.forEach((date) => {
+    //Dando un formato a la fecha de objeto con la libreria moment.js
+    const dateMoment = moment(date, "DD/MM/YYYY");
+
     //Agregar cada fecha en la lista
     list.appendChild(dateElement(date));
 
