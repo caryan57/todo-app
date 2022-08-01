@@ -22,6 +22,7 @@ const readTasks = () => {
     taskList.forEach((task) => {
       if (task.dateFormat == date) {
         const taskElement = createTask(task);
+        const taskDate = moment(task.dateFormat, "DD/MM/YYYY");
         list.appendChild(taskElement);
       }
     });
