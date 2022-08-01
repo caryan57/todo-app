@@ -14,6 +14,11 @@ const addTask = (e) => {
   const date = inputDate.value;
   const dateFormat = moment(date).format("DD/MM/YYYY");
 
+  //Retornar esta función si no se llenan los valores
+  if (value == "" || date == "") {
+    return;
+  }
+
   //Guardar los valores en localStorage
   const taskList = JSON.parse(localStorage.getItem("tasks")) || [];
 
