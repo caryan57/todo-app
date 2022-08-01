@@ -38,22 +38,25 @@ const addTask = (e) => {
 };
 
 const createTask = ({ value, dateFormat }) => {
-  //Crear span con la fecha
-  const dateElement = document.createElement("span");
-  dateElement.innerHTML = dateFormat;
-
-  //Crear elemento <li> que contiene un <div> con los sus respectivos iconos
+  //Crear elemento <li> que contiene cada tarea y su clase "card"
   const task = document.createElement("li");
+  task.classList.add("card");
+
+  //Crear div que contiene los iconos y demás elementos de las tareas
   const taskContent = document.createElement("div");
-  taskContent.appendChild(checkComplete());
 
   //Crear span con los datos de la tarea
   const titleTask = document.createElement("span");
   titleTask.classList.add("task");
   titleTask.innerText = value;
 
-  //Agregar el contenido del span al div
+  //Agregar el contenido del span y los iconos al div
   taskContent.appendChild(titleTask);
+  taskContent.appendChild(checkComplete());
+
+  //Crear span con la fecha
+  const dateElement = document.createElement("span");
+  dateElement.innerHTML = dateFormat;
 
   //Agregar al elemento <li> todo lo creado previamente
   task.appendChild(taskContent);
@@ -61,9 +64,6 @@ const createTask = ({ value, dateFormat }) => {
 
   //Crear icono de eliminar tarea
   task.appendChild(deleteIcon());
-
-  //Agregar clase "card" a la tarea
-  task.classList.add("card");
 
   return task;
 };
