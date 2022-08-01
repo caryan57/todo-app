@@ -8,6 +8,7 @@ const createTask = (e) => {
   const input = document.querySelector("[data-input-form]");
   const inputDate = document.querySelector("[data-input-date]");
   const date = inputDate.value;
+  const dateFormat = moment(date).format("DD/MM/YYYY");
   const value = input.value;
   input.value = "";
   const list = document.querySelector("[data-list]");
