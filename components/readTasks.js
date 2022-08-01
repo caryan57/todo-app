@@ -12,13 +12,16 @@ const readTasks = () => {
 
   //Recorrer array de fechas
   dates.forEach((date) => {
-    console.log(date);
-  });
-
-  //Recorrer el arreglo de tasksList y mostrar cada elemento del localStorage a la lista de tareas
-  taskList.forEach((task) => {
-    const taskElement = createTask(task);
-    list.appendChild(taskElement);
+    //Mostrar una lista de fechas de acuerdo a las tareas
+    list.appendChild(dateElement(date));
+    //Recorrer el arreglo de tasksList y mostrar cada elemento del localStorage a la lista de tareas
+    taskList.forEach((task) => {
+      //Si la fecha de la tarea coincide con la lista de fechas, crear el elemento
+      if (task.dateFormat == date) {
+        const taskElement = createTask(task);
+        list.appendChild(taskElement);
+      }
+    });
   });
 };
 
