@@ -1,4 +1,3 @@
-import createTask from "./createTask.js";
 import displayTasks from "./displayTasks.js";
 
 const addTask = (e) => {
@@ -28,6 +27,7 @@ const addTask = (e) => {
     value,
     dateFormat,
     complete,
+    id: uuid.v4(),
   };
 
   list.innerHTML = "";

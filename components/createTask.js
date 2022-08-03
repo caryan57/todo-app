@@ -1,18 +1,23 @@
 import checkComplete from "./checkComplete.js";
 import deleteIcon from "./deleteIcon.js";
 
-const createTask = ({ value, dateFormat, complete }) => {
+const createTask = ({ value, dateFormat, complete, id }) => {
   //Crear elemento <li> que contiene cada tarea y su clase "card"
   const task = document.createElement("li");
   task.classList.add("card");
 
+  //
+  const check = checkComplete(id);
+
   if (complete) {
-    console.log("Tarea completada");
+    //Sobreeescribir la clases de la funcion checkComplete -> completeTask
+    check.classList.toggle("far");
+    check.classList.toggle("fas");
   }
 
   //Crear div que contiene los iconos y demás elementos de las tareas
   const taskContent = document.createElement("div");
-  taskContent.appendChild(checkComplete());
+  taskContent.appendChild(check);
 
   //Crear span con los datos de la tarea
   const titleTask = document.createElement("span");
