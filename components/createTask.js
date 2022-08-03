@@ -36,7 +36,7 @@ const createTask = ({ value, dateFormat, complete, id }) => {
   task.appendChild(dateElement);
 
   //Crear icono de eliminar tarea
-  task.appendChild(deleteIcon());
+  task.appendChild(deleteIcon(id));
 
   return task;
 };
