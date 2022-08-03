@@ -10,8 +10,6 @@ const displayTasks = () => {
   //Crear un array con las fechas sin repetir de las tareas
   const dates = uniqueDates(taskList);
 
-  console.log(dates);
-
   //Recorrer array de fechas
   dates.forEach((date) => {
     //Dando un formato a la fecha de objeto con la libreria moment.js

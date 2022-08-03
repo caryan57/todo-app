@@ -13,6 +13,7 @@ const addTask = (e) => {
   //Dar formato a los valores de cada input
   const value = input.value;
   const date = inputDate.value;
+  const complete = false;
   const dateFormat = moment(date).format("DD/MM/YYYY");
 
   //Retornar esta función si no se llenan los valores
@@ -26,6 +27,7 @@ const addTask = (e) => {
   const taskObj = {
     value,
     dateFormat,
+    complete,
   };
 
   list.innerHTML = "";
