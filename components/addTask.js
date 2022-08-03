@@ -1,4 +1,5 @@
 import createTask from "./createTask.js";
+import displayTasks from "./displayTasks.js";
 
 const addTask = (e) => {
   //Evitar comportamiento default del formulario
@@ -27,14 +28,12 @@ const addTask = (e) => {
     dateFormat,
   };
 
+  list.innerHTML = "";
+
   taskList.push(taskObj);
   localStorage.setItem("tasks", JSON.stringify(taskList));
 
-  //Enviar el contenido de cada input como objeto
-  const task = createTask(taskObj);
-
-  //Agregar la tarea a la lista de tareas
-  list.appendChild(task);
+  displayTasks();
 
   //Resetear valores de los input
   input.value = "";

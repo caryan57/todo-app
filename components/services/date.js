@@ -7,6 +7,9 @@ const uniqueDates = (tasks) => {
     }
   });
 
+  //Ordenar lista de fechas de menor a mayor
+  unique.sort();
+
   return unique;
 };
 
